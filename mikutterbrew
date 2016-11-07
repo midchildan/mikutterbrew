@@ -1,0 +1,10 @@
+#!/bin/bash
+script_dir=$(dirname $0)
+export GEM_HOME=${script_dir}/vendor
+export GEM_PATH=$GEM_HOME
+
+if [[ "$1" == "init" ]]; then
+  gem install resona
+else
+  ruby ${script_dir}/lib/mikutterbrew.rb $@
+fi
