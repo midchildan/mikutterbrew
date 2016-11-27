@@ -91,7 +91,7 @@ class Formula
   attr_reader :path, :content
 
   def initialize(pth=nil)
-    @path = pth || "#{`brew --repo homebrew/gui`.chomp}/mikutter.rb"
+    @path = pth || "#{`brew --repo homebrew/core`.chomp}/Formula/mikutter.rb"
     @content = File.read(@path)
   end
 
@@ -108,7 +108,7 @@ class Formula
   end
 
   def replace_resource_stanzas!(new_stanzas)
-    resource_stanzas = 
+    resource_stanzas =
       /(?:( *)resource +\".*\" +do\n(?:.*\n)*?\1end\n*)+/
 
     indent = resource_stanzas.match(@content)[1]
